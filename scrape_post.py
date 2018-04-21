@@ -7,7 +7,7 @@ Created on Sat Apr 21 11:04:33 2018
 
 import json, requests
 
-subreddit = 'askreddit'
+subreddit = 'news'
 
 r = requests.get(
     'http://www.reddit.com/r/{}.json'.format(subreddit),
@@ -15,7 +15,9 @@ r = requests.get(
 )
 
 # view structure of an individual post
-# print(json.dumps(r.json()['data']['children'][0]))
+#print(json.dumps(r.json()['data']['children'][0]))
 
 for post in r.json()['data']['children']:
     print(post['data']['title'])
+    print(post['data']['selftext'])
+    print('------------------------------------------')
